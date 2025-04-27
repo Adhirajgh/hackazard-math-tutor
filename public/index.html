@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Solver AI</title>
+    <style>
+        /* Basic CSS for layout (you'll need to expand this) */
+        #imageInputContainer, #voiceInputContainer, #problemDisplay, #solutionDisplay {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 0;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Math Solver AI</h1>
+        <a href="login.html" class="auth-button top-right-button">Log in </button>
+    </header>
+
+    <main>
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                    </div>
+                    <button type="submit" class="primary-button">Log In</button>
+                    <p class="auth-toggle">Don't have an account? <a href="#signupModalLink">Sign Up</a></p>
+                </form>
+            </div>
+        </div>
+
+        <div id="signupModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Sign Up</h2>
+                <form id="signupForm">
+                    <div class="input-group">
+                        <label for="signupName">Name:</label>
+                        <input type="text" id="signupName" name="signupName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signupEmail">Email:</label>
+                        <input type="email" id="signupEmail" name="signupEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signupPassword">Password:</label>
+                        <input type="password" id="signupPassword" name="signupPassword" required>
+                    </div>
+                    <button type="submit" class="secondary-button">Sign Up</button>
+                    <p class="auth-toggle">Already have an account? <a href="#loginModalLink">Log In</a></p>
+                </form>
+            </div>
+        </div>
+
+        <div id="imageInputContainer">
+            <h2>Upload Image</h2>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button id="processImage">Process Image</button>
+        </div>
+
+        <div id="voiceInputContainer">
+            <h2>Voice Input</h2>
+            <button id="startVoice">Start Recording</button>
+            <button id="stopVoice" disabled>Stop Recording</button>
+            <div id="voiceOutput"></div>
+        </div>
+
+        <div id="problemDisplay">
+            <h2>Problem:</h2>
+            <div id="problemText"></div>
+        </div>
+
+        <div id="solutionDisplay">
+            <h2>Solution:</h2>
+            <div id="solutionText"></div>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.js"></script>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
